@@ -66,7 +66,7 @@ In order to record from your security cameras, you will need to purchase license
 ## Info
 
 * Shell access whilst the container is running: `docker exec -it nxwitness /bin/bash`
-* To monitor the logs of the container in realtime: `docker logs -f nxwitness
+* To monitor the logs of the container in realtime: `docker logs -f nxwitness`
 
 
 ## Versions
