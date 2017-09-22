@@ -3,7 +3,7 @@ MAINTAINER Ryan Flagler
 
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
-ENV COMPANY_NAME="networkoptix" \
+COMPANY_NAME="networkoptix" \
 SOFTWARE_URL="http://updates.networkoptix.com/default/15297/linux/nxwitness-server-3.0.0.15297-linux64.deb"
 
 # install packages
@@ -55,7 +55,7 @@ RUN \
  cd /opt/deb && \
  curl -O -L \
 	"${SOFTWARE_URL}" && \
- unzip /opt/deb/${COMPANY_NAME}.zip || echo "Not a zip" && \
+ unzip /opt/deb/*.zip || echo "Not a zip" && \
  dpkg-deb -R $(ls *.deb) extracted && \
  rm -rf ./extracted/etc/init.d && \
  sed -i '/service apport stop/q' ./extracted/DEBIAN/postinst && \
