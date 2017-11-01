@@ -48,6 +48,7 @@ RUN \
         syslinux \
         net-tools \
         libglib2.0 \
+        cifs-utils \
         syslinux-common && \
 
 # install
