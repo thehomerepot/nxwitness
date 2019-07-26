@@ -1,10 +1,10 @@
-FROM lsiobase/xenial
+FROM lsiobase/ubuntu:bionic
 MAINTAINER Ryan Flagler
 
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
 COMPANY_NAME="networkoptix" \
-SOFTWARE_URL="http://updates.networkoptix.com/default/29287/linux/nxwitness-server-3.2.0.29287-linux64.deb"
+SOFTWARE_URL="http://updates.networkoptix.com/default/29227/linux/nxwitness-server-4.0.0.29227-linux64-beta-prod.deb"
 
 # install packages
 RUN \
