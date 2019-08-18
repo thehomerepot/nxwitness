@@ -59,7 +59,7 @@ RUN \
  dpkg-deb -R $(ls *.deb) extracted && \
  rm -rf ./extracted/etc/init.d && \
  sed -i '/service apport stop/q' ./extracted/DEBIAN/postinst && \
- sed -i '/^service.*mediaserver stop/d' ./extracted/DEBIAN/postinst && \
+ sed -i "/service.*stop/s/stop/stop 2>\/dev\/null/g" ./extracted/DEBIAN/postinst && \
  dpkg-deb -b extracted ${COMPANY_NAME}.deb && \
  echo ${COMPANY_NAME} ${COMPANY_NAME}-mediaserver/accepted-mediaserver-eula boolean true | debconf-set-selections && \
  dpkg -i ${COMPANY_NAME}.deb && \
