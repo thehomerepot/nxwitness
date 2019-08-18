@@ -1,0 +1,31 @@
+#!/usr/bin/with-contenv bash
+
+#If our target directory does not exist
+#Move our source directory into place
+if [[ ! -d /config/var ]]
+then
+  mv /opt/${COMPANY_NAME}/mediaserver/var /config/var
+fi
+
+#if our source path is NOT a symbolic link
+#delete it, and link it
+if [[ ! -h /opt/${COMPANY_NAME}/mediaserver/var ]]
+then
+  rm -rf /opt/${COMPANY_NAME}/mediaserver/var
+  ln -s /config/var /opt/${COMPANY_NAME}/mediaserver/var
+fi
+
+#If our target directory does not exist
+#Move our source directory into place
+if [[ ! -d /config/etc ]]
+then
+  mv /opt/${COMPANY_NAME}/mediaserver/etc /config/etc
+fi
+
+#if our source path is NOT a symbolic link
+#delete it, and link it
+if [[ ! -h /opt/${COMPANY_NAME}/mediaserver/etc ]]
+then
+  rm -rf /opt/${COMPANY_NAME}/mediaserver/etc
+  ln -s /config/etc /opt/${COMPANY_NAME}/mediaserver/etc
+fi
