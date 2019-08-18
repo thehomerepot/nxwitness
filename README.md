@@ -23,7 +23,7 @@ docker run -d \
 -e PUID=<UID> -e PGID=<GID> \
 -e TZ=<timezone> \
 -v </path/to/config>:/config \
--v </path/to/recordings>:"/archive" \
+-v </path/to/recordings>:/archive \
 thehomerepot/nxwitness
 ```
 
