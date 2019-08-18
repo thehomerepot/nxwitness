@@ -50,7 +50,6 @@ RUN \
         libglib2.0 \
         cifs-utils \
         syslinux-common && \
-
 # install
  mkdir -p /opt/deb && \
  cd /opt/deb && \
@@ -62,7 +61,6 @@ RUN \
  dpkg-deb -b extracted ${COMPANY_NAME}.deb && \
  echo ${COMPANY_NAME} ${COMPANY_NAME}-mediaserver/accepted-mediaserver-eula boolean true | debconf-set-selections && \
  dpkg -i ${COMPANY_NAME}.deb && \
-
 # cleanup
  apt-get clean && \
  rm -rf \
