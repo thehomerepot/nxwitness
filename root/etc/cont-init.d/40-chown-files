@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+
+# permissions
+chown -R ${COMPANY_NAME}:${COMPANY_NAME} \
+        /app \
+        /archive \
+        /config \
+        /opt
