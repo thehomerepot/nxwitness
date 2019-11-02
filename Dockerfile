@@ -129,6 +129,7 @@ RUN \
         sed -i 's/systemd.*), //' ./extracted/DEBIAN/control && \
         sed -i '/# Dirty hack to prevent/q' ./extracted/DEBIAN/postinst && \
         sed -i "/systemctl.*stop/s/ ||/ 2>\/dev\/null ||/g" ./extracted/DEBIAN/postinst && \
+        sed -i 's/systemd-detect-virt/echo "none"/' ./extracted/DEBIAN/postinst && \
         sed -i '/^    su/d; /--chuid/d' ./extracted/opt/${COMPANY_NAME}/mediaserver/bin/mediaserver && \
         rm -rf ./extracted/etc && \
         dpkg-deb -b extracted ${COMPANY_NAME}.deb && \
