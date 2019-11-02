@@ -4,7 +4,7 @@ MAINTAINER Ryan Flagler
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
 COMPANY_NAME="networkoptix" \
-SOFTWARE_URL="http://updates.networkoptix.com/default/29227/linux/nxwitness-server-4.0.0.29227-linux64-beta-prod.deb"
+SOFTWARE_URL="https://updates.networkoptix.com/default/29987/linux/nxwitness-server-4.0.0.29987-linux64.deb"
 
 # install packages
 RUN \
@@ -128,7 +128,7 @@ RUN \
         dpkg-deb -R $(ls *.deb) extracted && \
         sed -i "s/systemd, //" ./extracted/DEBIAN/control && \
         sed -i '/# Dirty hack to prevent/q' ./extracted/DEBIAN/postinst && \
-        sed -i "/service.*stop/s/stop/stop 2>\/dev\/null/g" ./extracted/DEBIAN/postinst && \
+        sed -i "/systemctl.*stop/s/ ||/ 2>\/dev\/null ||/g" ./extracted/DEBIAN/postinst && \
         sed -i '/^    su/d; /--chuid/d' ./extracted/opt/${COMPANY_NAME}/mediaserver/bin/mediaserver && \
         rm -rf ./extracted/etc && \
         dpkg-deb -b extracted ${COMPANY_NAME}.deb && \
