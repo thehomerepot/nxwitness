@@ -126,7 +126,7 @@ RUN \
         cd /opt/deb && \
         curl -O -L "${SOFTWARE_URL}" && \
         dpkg-deb -R $(ls *.deb) extracted && \
-        sed -i "s/systemd, //" ./extracted/DEBIAN/control && \
+        sed -i 's/systemd.*), //' ./extracted/DEBIAN/control && \
         sed -i '/# Dirty hack to prevent/q' ./extracted/DEBIAN/postinst && \
         sed -i "/systemctl.*stop/s/ ||/ 2>\/dev\/null ||/g" ./extracted/DEBIAN/postinst && \
         sed -i '/^    su/d; /--chuid/d' ./extracted/opt/${COMPANY_NAME}/mediaserver/bin/mediaserver && \
