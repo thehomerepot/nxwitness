@@ -117,7 +117,7 @@ RUN \
                 ucf \
                 x11-common \
                 xdg-user-dirs && \
-# modify user
+# modify user 
         usermod -l $COMPANY_NAME abc && \
         groupmod -n $COMPANY_NAME abc && \
         sed -i "s/abc/\$COMPANY_NAME/g" /etc/cont-init.d/10-adduser && \
