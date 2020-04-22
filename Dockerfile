@@ -4,7 +4,7 @@ MAINTAINER Ryan Flagler
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
 COMPANY_NAME="networkoptix" \
-SOFTWARE_URL="https://updates.networkoptix.com/default/30707/linux/nxwitness-server-4.0.0.30707-linux64.deb"
+SOFTWARE_URL="https://updates.networkoptix.com/default/30798/linux/nxwitness-server-4.1.0.30798-linux64-beta-prod.deb"
 
 # install packages
 RUN \
