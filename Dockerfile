@@ -9,7 +9,6 @@ SOFTWARE_URL="https://updates.networkoptix.com/default/32045/linux/nxwitness-ser
 # install packages
 RUN \
         apt-get update && \
-        apt-get install -y && \
 # modify user
         usermod -l $COMPANY_NAME abc && \
         groupmod -n $COMPANY_NAME abc && \
