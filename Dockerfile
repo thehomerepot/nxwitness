@@ -1,4 +1,4 @@
-FROM lsiobase/ubuntu:bionic
+FROM lsiobase/ubuntu:focal
 MAINTAINER Ryan Flagler
 
 # global environment settings
