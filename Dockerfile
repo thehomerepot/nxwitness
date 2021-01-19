@@ -13,7 +13,9 @@ RUN \
 # install packages
 RUN \
         apt-get update && \
-        apt-get install --no-install-recommends --yes /opt/deb/${COMPANY_NAME}.deb && \
+        apt-get install --no-install-recommends --yes \
+            gdb \
+            /opt/deb/${COMPANY_NAME}.deb && \
 # modify user
         usermod -l $COMPANY_NAME abc && \
         groupmod -n $COMPANY_NAME abc && \
