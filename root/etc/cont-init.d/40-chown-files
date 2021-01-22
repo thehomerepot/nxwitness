@@ -1,8 +1,21 @@
 #!/usr/bin/with-contenv bash
 
-# permissions
-chown -R ${COMPANY_NAME}:${COMPANY_NAME} \
-        /app \
-        /archive \
-        /config \
-        /opt
+if [ ! "$(stat -c %U /app)" = "${COMPANY_NAME}" ]
+then
+  chown -R ${COMPANY_NAME}:${COMPANY_NAME} /config
+fi
+
+if [ ! "$(stat -c %U /archive)" = "${COMPANY_NAME}" ]
+then
+  chown -R ${COMPANY_NAME}:${COMPANY_NAME} /archive
+fi
+
+if [ ! "$(stat -c %U /config)" = "${COMPANY_NAME}" ]
+then
+  chown -R ${COMPANY_NAME}:${COMPANY_NAME} /config
+fi
+
+if [ ! "$(stat -c %U /opt)" = "${COMPANY_NAME}" ]
+then
+  chown -R ${COMPANY_NAME}:${COMPANY_NAME} /media
+fi
