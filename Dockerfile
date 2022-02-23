@@ -1,8 +1,7 @@
-FROM lsiobase/ubuntu:bionic
+FROM lsiobase/ubuntu:focal
 MAINTAINER Ryan Flagler
 
 # global environment settings
-ENV DEBIAN_FRONTEND="noninteractive"
 ENV COMPANY_NAME="networkoptix"
 ENV SOFTWARE_URL="https://updates.networkoptix.com/default/5.0.0.34342/linux/nxwitness-server-5.0.0.34342-linux_x64-beta.deb"
 
@@ -14,6 +13,15 @@ RUN     mkdir -p /opt/deb && \
 RUN     usermod -l $COMPANY_NAME abc && \
         groupmod -n $COMPANY_NAME abc && \
         sed -i "s/abc/\$COMPANY_NAME/g" /etc/cont-init.d/10-adduser
+
+# extract package and modify postinst
+RUN     cd /opt/deb && \
+        dpkg-deb -R $(ls *.deb) extracted && \
+        sed -i '/^reloadServices$/d' ./extracted/DEBIAN/postinst && \
+        dpkg-deb -b extracted ${COMPANY_NAME}.deb
+
+# Set noninteractive
+RUN     echo "debconf debconf/frontend select noninteractive" | debconf-set-selections
 
 # install packages
 RUN     apt-get update && \
