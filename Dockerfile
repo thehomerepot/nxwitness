@@ -1,4 +1,4 @@
-FROM lsiobase/ubuntu:focal
+FROM lsiobase/ubuntu:jammy
 MAINTAINER Ryan Flagler
 
 # global environment settings
