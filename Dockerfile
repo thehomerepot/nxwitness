@@ -12,7 +12,7 @@ RUN     mkdir -p /opt/deb && \
 # modify user
 RUN     usermod -l $COMPANY_NAME abc && \
         groupmod -n $COMPANY_NAME abc && \
-        sed -i "s/abc/\$COMPANY_NAME/g" /etc/cont-init.d/10-adduser
+        sed -i "s/abc/\$COMPANY_NAME/g" /etc/s6-overlay/s6-rc.d/init-adduser/run
 
 # extract package and modify postinst
 RUN     cd /opt/deb && \
