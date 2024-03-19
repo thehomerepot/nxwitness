@@ -3,7 +3,7 @@ MAINTAINER Ryan Flagler
 
 # global environment settings
 ENV COMPANY_NAME="networkoptix"
-ENV SOFTWARE_URL="https://updates.networkoptix.com/default/5.1.2.37996/linux/nxwitness-server-5.1.2.37996-linux_x64.deb"
+ENV SOFTWARE_URL="https://updates.networkoptix.com/default/5.1.3.38363/linux/nxwitness-server-5.1.3.38363-linux_x64.deb"
 
 # pull installer
 RUN     mkdir -p /opt/deb && \
